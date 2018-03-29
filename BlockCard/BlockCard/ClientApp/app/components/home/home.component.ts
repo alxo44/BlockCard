@@ -6,16 +6,16 @@ import { Http } from '@angular/http';
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    public forecasts: WeatherForecast[];
+    public forecasts: Blockchain[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result.json() as WeatherForecast[];
+        http.get(baseUrl + 'api/Blockchain/All').subscribe(result => {
+            this.forecasts = result.json() as Blockchain[];
         }, error => console.error(error));
     }
 }
 
-interface WeatherForecast {
+interface Blockchain {
     dateFormatted: string;
     temperatureC: number;
     temperatureF: number;
