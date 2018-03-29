@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.IO;
 using System.Net;
 
 namespace Blockchain
@@ -16,19 +18,23 @@ namespace Blockchain
         public Repository(string api)
         {
             string response;
-            using (var webClient = new WebClient())
-                response = webClient.DownloadString(api);
+            var request = (HttpWebRequest)WebRequest.Create(api);
+            request.UserAgent = "BlockCard";
+            using (var httpWebResponse = (HttpWebResponse)request.GetResponse())
+                using (var stream = httpWebResponse.GetResponseStream())
+                    using (var streamReader = new StreamReader(stream))
+                        response = streamReader.ReadToEnd();
 
             var repository = new
-            {
-                name = default(string),
-                description = default(string),
-                owner = new { avatar_url = default(string) },
-                language = default(string),
-                open_issues = default(string),
-                forks = default(string),
-                homepage = default(string)
-            };
+                {
+                    name = default(string),
+                    description = default(string),
+                    owner = new { avatar_url = default(string) },
+                    language = default(string),
+                    open_issues = default(string),
+                    forks = default(string),
+                    homepage = default(string)
+                };
             var json = JsonConvert.DeserializeAnonymousType(response, repository);
 
             Name = json.name;
