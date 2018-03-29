@@ -6,16 +6,16 @@ import { Http } from '@angular/http';
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    public blockchains: Blockchain[];
+    public repositories: Repository[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/Blockchain/All').subscribe(result => {
-            this.blockchains = result.json() as Blockchain[];
+        http.get(baseUrl + 'api/Repository/All').subscribe(result => {
+            this.repositories = result.json() as Repository[];
         }, error => console.error(error));
     }
 }
 
-interface Blockchain {
+interface Repository {
     name: string;
     description: string;
     organizationAvatarUrl: string;

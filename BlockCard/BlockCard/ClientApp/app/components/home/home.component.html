@@ -1,8 +1,8 @@
-<h1>Top Blockchain Projects</h1>
+<h1>Top Blockchain Repository Projects</h1>
 
-<p *ngIf="!blockchains"><em>Loading...</em></p>
+<p *ngIf="!repositories"><em>Loading...</em></p>
 
-<table class='table' *ngIf="blockchains">
+<table class='table' *ngIf="repositories">
     <thead>
         <tr>
             <th>Name</th>
@@ -15,14 +15,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let blockchain of blockchains">
-            <td>{{ blockchain.name }}</td>
-            <td>{{ blockchain.description }}</td>
-            <td>{{ blockchain.organizationAvatarUrl }}</td>
-            <td>{{ blockchain.language }}</td>
-            <td>{{ blockchain.openIssues }}</td>
-            <td>{{ blockchain.forks }}</td>
-            <td>{{ blockchain.homepage }}</td>
+        <tr *ngFor="let repository of repositories">
+            <td>{{ repository.name }}</td>
+            <td>{{ repository.description }}</td>
+            <td>{{ repository.organizationAvatarUrl }}</td>
+            <td>{{ repository.language }}</td>
+            <td>{{ repository.openIssues }}</td>
+            <td>{{ repository.forks }}</td>
+            <td>{{ repository.homepage }}</td>
         </tr>
     </tbody>
 </table>
