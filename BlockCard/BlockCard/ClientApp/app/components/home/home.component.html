@@ -1,24 +1,28 @@
 <h1>Top Blockchain Projects</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p *ngIf="!blockchains"><em>Loading...</em></p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-
-<table class='table' *ngIf="forecasts">
+<table class='table' *ngIf="blockchains">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Organization Avatar Url</th>
+            <th>Language</th>
+            <th>Open Issues</th>
+            <th>Forks</th>
+            <th>Homepage</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
+        <tr *ngFor="let blockchain of blockchains">
+            <td>{{ blockchain.name }}</td>
+            <td>{{ blockchain.description }}</td>
+            <td>{{ blockchain.organizationAvatarUrl }}</td>
+            <td>{{ blockchain.language }}</td>
+            <td>{{ blockchain.openIssues }}</td>
+            <td>{{ blockchain.forks }}</td>
+            <td>{{ blockchain.homepage }}</td>
         </tr>
     </tbody>
 </table>

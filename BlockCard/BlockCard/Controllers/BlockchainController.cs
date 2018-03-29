@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,35 +10,45 @@ namespace BlockCard.Controllers
     [Route("api/[controller]")]
     public class BlockchainController : Controller
     {
-        private static string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         [HttpGet("[action]")]
-        public IEnumerable<Blockchain> All()
+        public IEnumerable<Blockchain> All() => Assembly.GetAssembly(typeof(Blockchain)).GetTypes()
+                .Where(blockchain => blockchain.IsSubclassOf(typeof(Blockchain)))
+                .Select(blockchain => (Blockchain)Activator.CreateInstance(blockchain));
+
+        public abstract class Blockchain
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Blockchain
+            public string Name { get; private set; }
+            public string Description { get; private set; }
+            public string OrganizationAvatarUrl { get; private set; }
+            public string Language { get; private set; }
+            public string OpenIssues { get; private set; }
+            public string Forks { get; private set; }
+            public string Homepage { get; private set; }
+
+            public Blockchain() => Load();
+
+            protected abstract void Load();
+
+            protected void Initialize(string name, string description, string organizationAvatarUrl,
+                string language, string openIssues, string forks, string homepage)
             {
-                DateFormatted = DateTime.Now.AddDays(index).ToString("d"),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            });
+                Name = name;
+                Description = description;
+                OrganizationAvatarUrl = organizationAvatarUrl;
+                Language = language;
+                OpenIssues = openIssues;
+                Forks = forks;
+                Homepage = homepage;
+            }
         }
 
-        public class Blockchain
+        public class Bitcoin : Blockchain
         {
-            public string DateFormatted { get; set; }
-            public int TemperatureC { get; set; }
-            public string Summary { get; set; }
+            public Bitcoin() : base() { }
 
-            public int TemperatureF
+            protected override void Load()
             {
-                get
-                {
-                    return 32 + (int)(TemperatureC / 0.5556);
-                }
+                Initialize("a", "b", "c", "d", "e", "f", "g");
             }
         }
     }
