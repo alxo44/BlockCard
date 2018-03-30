@@ -14,11 +14,12 @@ namespace Blockchain
         public string Forks { get; private set; }
         public string Homepage { get; private set; }
 
-        public Repository(string api)
+        public Repository(string api, string apiToken, string userAgent)
         {
             string response;
             var request = (HttpWebRequest)WebRequest.Create(api);
-            request.UserAgent = "BlockCard";
+            request.Headers["Authorization"] = apiToken;
+            request.UserAgent = userAgent;
             using (var httpWebResponse = (HttpWebResponse)request.GetResponse())
                 using (var stream = httpWebResponse.GetResponseStream())
                     using (var streamReader = new StreamReader(stream))
