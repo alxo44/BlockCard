@@ -119,10 +119,14 @@
   </resheader>
   <data name="ApiList" xml:space="preserve">
     <value>bitcoin/bitcoin;ethereum/go-ethereum;ripple/rippled;litecoin-project/litecoin;EOSIO/eos;input-output-hk/cardano-sl;stellar/stellar-core;neo-project/neo</value>
-    <comment>Ordered semicolon delimited list of GitHub API repository full names</comment>
+    <comment>Ordered semicolon delimited list of GitHub API public repository full names</comment>
   </data>
   <data name="ApiRoot" xml:space="preserve">
     <value>https://api.github.com/repos/</value>
-    <comment>Root URL of GitHub API repositories</comment>
+    <comment>Root URL of GitHub API public repositories</comment>
+  </data>
+  <data name="ApiToken" xml:space="preserve">
+    <value>Token e3fd4b7e17cd7f3e0967ad5cc3185bd62f1cfdc6</value>
+    <comment>Authorization token for GitHub API public repository access</comment>
   </data>
 </root>

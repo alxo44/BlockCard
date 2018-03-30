@@ -11,14 +11,16 @@ namespace BlockCard.Controllers
     public class RepositoryController : Controller
     {
         [HttpGet("[action]")]
-        [ResponseCache(Duration = 3600)]
+        [ResponseCache(Duration = 60)]
         public IEnumerable<Repository> All()
         {
             var apiFullNames = Properties.Resources.ResourceManager.GetString("ApiList").Split(';');
             var apiRoot = Properties.Resources.ResourceManager.GetString("ApiRoot");
+            var apiToken = Properties.Resources.ResourceManager.GetString("ApiToken");
             var repositories = new SortedDictionary<int, Repository>();
             Parallel.ForEach(apiFullNames, apiFullName => repositories.Add(Array.IndexOf(apiFullNames, apiFullName),
-                (Repository)Activator.CreateInstance(typeof(Repository), apiRoot + apiFullName)));
+                (Repository)Activator.CreateInstance(typeof(Repository),
+                apiRoot + apiFullName, apiToken, AppDomain.CurrentDomain.FriendlyName)));
             return repositories.Select(repository => repository.Value);
         }
     }
