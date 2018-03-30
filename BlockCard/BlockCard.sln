@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Blend for Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockCard", "BlockCard\BlockCard.csproj", "{D8F6F2C5-E36A-449D-96F8-2822DAB21B2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockCard", "BlockCard\BlockCard.csproj", "{D8F6F2C5-E36A-449D-96F8-2822DAB21B2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blockchain", "Blockchain\Blockchain.csproj", "{CA81B247-34F6-4CF2-B39C-7F60316A514D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blockchain", "Blockchain\Blockchain.csproj", "{CA81B247-34F6-4CF2-B39C-7F60316A514D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainTest", "BlockchainTest\BlockchainTest.csproj", "{794EA0BA-9A89-4FB7-AF64-D691B126EBE6}"
 EndProject

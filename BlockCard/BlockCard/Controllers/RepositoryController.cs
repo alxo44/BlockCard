@@ -11,6 +11,7 @@ namespace BlockCard.Controllers
     public class RepositoryController : Controller
     {
         [HttpGet("[action]")]
+        [ResponseCache(Duration = 3600)]
         public IEnumerable<Repository> All()
         {
             var apiFullNames = Properties.Resources.ResourceManager.GetString("ApiList").Split(';');
