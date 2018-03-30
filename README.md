@@ -1,1 +1,1 @@
-https://alexhansen.visualstudio.com/BlockCard/_wiki/wikis/BlockCard.wiki
+https://alexhansen.visualstudio.com/BlockCard/_wiki

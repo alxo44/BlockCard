@@ -1,0 +1,42 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+    height: 350px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 0px 10px 10px 0px;
+    padding: 10px;
+    position: relative;
+}
+
+.card .avatar {
+    width: 32px;
+    height: 32px;
+    margin: 0px 10px 0px 0px;
+}
+
+.card table {
+    position: absolute;
+    width: calc(100% - 20px);
+}
+
+.card .top {
+    top: 0;
+}
+
+.card .top th,
+.card .top td {
+    width: 100%;
+}
+
+.card .bottom {
+    bottom: 0;
+}
+
+.card .bottom th,
+.card .bottom td {
+    width: calc(100% / 3);
+}
