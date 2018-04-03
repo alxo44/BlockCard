@@ -79,7 +79,7 @@ namespace BlockCard.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Token e3fd4b7e17cd7f3e0967ad5cc3185bd62f1cfdc6.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string ApiToken {
             get {
