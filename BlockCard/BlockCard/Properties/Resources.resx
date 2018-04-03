@@ -126,7 +126,7 @@
     <comment>Root URL of GitHub API public repositories</comment>
   </data>
   <data name="ApiToken" xml:space="preserve">
-    <value>Token 40d8d68453a5ef8a1dd794e7c8c7d3067ee18a6c</value>
+    <value />
     <comment>Authorization token for GitHub API public repository access</comment>
   </data>
 </root>
